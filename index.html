@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 게임 시작 화면 -->
+    <div id="startScreen" class="screen active">
+        <h1>🧮비비드뷰티하우스 더하기 게임 🧮</h1>
+        <div class="instructions">
+            <p>👉 5초 안에 문제를 풀고 정답을 입력하세요!</p>
+            <p>3문제 연속 정답 시 3000원쿠폰이 지급됩니다!</p>
+            <p>준비되면 시작 버튼을 눌러주세요!</p>
+        </div>
+        <button id="startButton" class="btn">시작하기 ▶️</button>
+    </div>
+
+    <!-- 게임 화면 -->
+    <div id="gameScreen" class="screen">
+        <div class="status-bar">
+            <div class="timer-bar">
+                <div id="timerProgress"></div>
+            </div>
+            <div id="score">연속 정답: 0/3</div>
+        </div>
+        <div class="problem" id="problem">23 + 17 = ?</div>
+        <div class="answer-input">
+            <input type="number" id="answerInput" placeholder="답을 입력하세요">
+            <button id="submitButton" class="btn">확인</button>
+        </div>
+    </div>
+
+    <!-- 실패 화면 -->
+    <div id="failScreen" class="screen">
+        <h2>😢 아쉽네요!</h2>
+        <p id="failMessage"></p>
+        <div class="button-group">
+            <button id="retryButton" class="btn">다시 하기 🔁</button>
+            <button id="homeButton" class="btn">홈으로 🏠</button>
+        </div>
+    </div>
+
+    <!-- 성공 화면 (쿠폰) -->
+    <div id="successScreen" class="screen">
+        <h2>🎉 축하합니다!</h2>
+        <p>3문제를 연속 정답하셨어요!</p>
+        <div id="couponArea">
+            <canvas id="couponCanvas"></canvas>
+        </div>
+        <div class="button-group">
+            <button id="saveCouponButton" class="btn">쿠폰 저장하기 💾</button>
+            <button id="successHomeButton" class="btn">홈으로 🏠</button>
+        </div>
+    </div>
+
+    <!-- 오디오 요소 -->
+    <audio id="correctSound" src="assets/Ascending 3.mp3" preload="auto"></audio>
+    <audio id="wrongSound" src="assets/fail_05.mp3" preload="auto"></audio>
+    <audio id="successSound" src="assets/suc_02.mp3" preload="auto"></audio>
+    <img id="failImage" src="assets/ggg.png" style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html> 

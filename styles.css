@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: backgroundShimmer 15s infinite linear;
+}
+
+@keyframes backgroundShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    animation: screenAppear 0.5s ease-out;
+}
+
+@keyframes screenAppear {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.screen.active {
+    display: block;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #ff1493;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ff1493;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.instructions p {
+    margin: 15px 0;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.btn {
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.3);
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+}
+
+.status-bar {
+    margin-bottom: 20px;
+}
+
+.timer-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid rgba(255, 105, 180, 0.3);
+}
+
+#timerProgress {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff69b4, #ff1493);
+    transition: width 0.1s linear;
+}
+
+#score {
+    font-size: 1.2rem;
+    color: #ff1493;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.problem {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 25px 0;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.1);
+}
+
+.answer-input {
+    margin: 25px 0;
+}
+
+#answerInput {
+    width: 180px;
+    padding: 12px;
+    font-size: 1.3rem;
+    border: 2px solid #ff69b4;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+}
+
+#answerInput:focus {
+    outline: none;
+    border-color: #ff1493;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+#couponArea {
+    margin: 25px 0;
+}
+
+#couponCanvas {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #ff69b4;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.2);
+}
+
+@media (max-width: 480px) {
+    .screen {
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .problem {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 10px 25px;
+    }
+} 
